@@ -200,7 +200,7 @@ export default class ParseApp {
         return Parse.Promise.as(this.classCounts.counts[className]);
       }
     }
-    let p = new Parse.Query(className).count({ useMasterKey: true });
+    let p = new Parse.Promise.as(0);
     p.then(count => {
       this.classCounts.counts[className] = count;
       this.classCounts.lastFetched[className] = new Date();
